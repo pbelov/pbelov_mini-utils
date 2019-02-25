@@ -21,7 +21,11 @@ public class Main {
             SharedUtils.e("no params, exiting");
             System.exit(0);
         } else if (args.length == 1) {
-            SharedUtils.e("no additional params for case [" + args[0] + "]");
+            if (args[0].equals("help")) {
+                SharedUtils.l("possible parameters: " + Arrays.toString(Case.values()));
+            } else {
+                SharedUtils.e("no additional params for case [" + args[0] + "]");
+            }
             System.exit(0);
         } else {
             Case _case = Case.valueOf(args[0]);
@@ -80,7 +84,7 @@ public class Main {
         }
     }
 
-    private static void arraySort(String args[]) {
+    private static void arraySort(String[] args) {
         SharedUtils.l("array sort: " + Arrays.toString(args));
         // must be >= 0
         if (args.length == 1) {
